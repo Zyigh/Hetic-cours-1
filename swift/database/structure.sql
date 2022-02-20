@@ -9,7 +9,7 @@ CREATE TABLE `album`
     published_at DATETIME     NOT NULL,
 
     CONSTRAINT album_pk PRIMARY KEY (`id`),
-    INDEX name_idx (`slug`)
+    INDEX slug_idx (`slug`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
