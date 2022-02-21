@@ -14,4 +14,7 @@ VALUES
 
 INSERT INTO `song`
     (`album_id`, `name`, `clip_id`, `duration`, `position`)
-VALUES ();
+VALUES
+    ((SELECT `a`.`id` FROM `album` a WHERE `a`.`slug` = 'taylor-swift'), 'Tim McGraw', 'GkD20ajVxnY', 234, 1),
+    ((SELECT `a`.`id` FROM `album` a WHERE `a`.`slug` = 'taylor-swift'), 'Picture to Burn', 'yCMqcFAigRg', 177, 2)
+;
