@@ -1,3 +1,10 @@
+<?php
+$nums = $_POST['nums'];
+
+$sum = 0;
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,14 +28,12 @@
         <div class="py-3">
             <h2 class="border-bottom">Numbers list</h2>
         </div>
-        <div class="col-1 text-center border-right">0 => 8</div>
-        <div class="col-1 text-center border-right">1 => 7</div>
-        <div class="col-1 text-center border-right">2 => 6</div>
-        <div class="col-1 text-center border-right">3 => 5</div>
-        <div class="col-1 text-center border-right">4 => 4</div>
-        <div class="col-1 text-center border-right">5 => 3</div>
-        <div class="col-1 text-center border-right">6 => 2</div>
-        <div class="col-1 text-center">7 => 1</div>
+        <?php foreach ($nums as $key => $value): ?>
+        <div
+            class="col-1 text-center<?php if ($key !== count($nums) - 1): ?> border-right<?php endif; ?>">
+            <?=$key?> => <?=$value?>
+        </div>
+        <?php endforeach ?>
     </section>
     <section class="row border-bottom bg-light py-3">
         <div class="py-3">
@@ -49,7 +54,11 @@
                 <h3 class="border-bottom">Sum</h3>
             </div>
             <div class="fw-bold py-3">
-                36
+                <?php
+                foreach ($nums as $value) {
+                    $sum += $value;
+                }
+                ?>
             </div>
         </div>
         <div class="col-3 border-right">
