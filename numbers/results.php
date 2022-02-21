@@ -2,6 +2,48 @@
 $nums = $_POST['nums'];
 
 $sum = 0;
+
+$numsBis = [];
+
+echo '<pre>';
+var_dump($nums);
+
+foreach ($nums as $v) {
+    $numsBis[] = intval($v);
+}
+
+
+var_dump($numsBis);
+
+$numberToFind = 8;
+
+function searchIndexOfValue(int $numberToFind, array $array): ?int {
+    $imin = 0;
+    $imax = count($array);
+
+    while ($imin < $imax) {
+        $middle = round(($imin + $imax) / 2);
+
+        if ($array[$middle] === $numberToFind) {
+            return $middle;
+        } elseif ($array[$middle] < $numberToFind) {
+            $imin = $middle + 1;
+        } else {
+            $imax = $middle - 1;
+        }
+    }
+
+    return null;
+}
+
+$indexOfNumberToFind = searchIndexOfValue($numberToFind, $numsBis);
+
+if (null === $indexOfNumberToFind) {
+    echo "On n'a pas trouvé";
+} else {
+    echo "On a trouvé, Index :" . $indexOfNumberToFind;
+}
+
 ?>
 
 
